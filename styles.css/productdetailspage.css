@@ -8,6 +8,10 @@ body {
 .pointer{
     cursor: pointer;
 }
+.a-button{
+    text-decoration: none;
+    color: white;
+}
 /* HEADER */
 .header {
     background: #00a0dc;

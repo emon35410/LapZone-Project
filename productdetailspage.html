@@ -47,11 +47,30 @@
 
             <div class="quantity-section">
                 <span>Quantity</span>
-                <button>-</button>
-                <input type="text" value="0">
-                <button>+</button>
+                <button id="decrement">-</button>
+<input type="text" id="counter" value="0" readonly>
+<button id="increment">+</button>
+
+<script>
+  const decrementBtn = document.getElementById('decrement');
+  const incrementBtn = document.getElementById('increment');
+  const counterInput = document.getElementById('counter');
+
+  decrementBtn.addEventListener('click', () => {
+    let value = parseInt(counterInput.value);
+    if (value > 0) { // prevent going below 0
+      counterInput.value = value - 1;
+    }
+  });
+
+  incrementBtn.addEventListener('click', () => {
+    let value = parseInt(counterInput.value);
+    counterInput.value = value + 1;
+  });
+</script>
+
                 <button class="add-to-cart">Add To Cart</button>
-                <button class="buy-now">Buy Now</button>
+                <button class="buy-now"> <a class="a-button" href="cheackoutpage.html">Buy Now</a></button>
             </div>
         </div>
     </section>
