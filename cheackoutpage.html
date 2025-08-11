@@ -74,18 +74,37 @@
             <th>Product Name</th>
             <th>Price</th>
             <th>Total</th>
-          </tr>
-          <tr>
-            <td>Asus Vivobook 16 i3-13115U 512GB</td>
-            <td>60000 x 1</td>
-            <td>৳ 60000.00</td>
-          </tr>
-        </table>
-        <div class="summary">
-          <p>Sub-Total: <span>৳ 60000.00</span></p>
-          <p>Home Delivery: <span>৳ 0.00</span></p>
-          <p class="total">Total Payable: <span>৳ 60000.00</span></p>
-        </div>
+            <tr>
+    <th>Product</th>
+    <th>Quantity x Price</th>
+    <th>Total</th>
+  </tr>
+  <tr>
+    <td>Asus Vivobook 16 i3-13115U 512GB</td>
+    <td><span id="quantity">1</span> x 60000</td>
+    <td>৳ <span id="totalPrice">60000.00</span></td>
+  </tr>
+</table>
+
+<div class="summary">
+  <p>Sub-Total: ৳ <span id="subTotal">60000.00</span></p>
+  <p>Home Delivery: ৳ 0.00</p>
+  <p class="total">Total Payable: ৳ <span id="totalPayable">60000.00</span></p>
+</div>
+
+<script>
+  // Get quantity from localStorage (set by your increment buttons on product page)
+  let quantity = parseInt(localStorage.getItem('laptopQuantity')) || 1;
+
+  const pricePerUnit = 60000;
+
+  // Update quantity and prices in DOM
+  document.getElementById('quantity').textContent = quantity;
+  let total = pricePerUnit * quantity;
+  document.getElementById('totalPrice').textContent = total.toFixed(2);
+  document.getElementById('subTotal').textContent = total.toFixed(2);
+  document.getElementById('totalPayable').textContent = total.toFixed(2);
+</script>
         <button class="confirm">Confirm Order</button>
       </div>
     </div>
